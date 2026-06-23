@@ -1,0 +1,8 @@
+# Railway uploads a snapshot of this directory. Keep it minimal and never
+# ship the local-only pnpm-workspace.yaml (breaks pnpm 9 on the builder).
+node_modules
+build
+.react-router
+.cache
+pnpm-workspace.yaml
+.DS_Store
