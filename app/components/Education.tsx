@@ -40,7 +40,7 @@ export function Education() {
                   {e.institution}
                 </h3>
                 <p className="mt-2 text-sm text-ink/70">{e.degree}</p>
-                <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/60">
+                <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/70">
                   {e.place}
                 </p>
 

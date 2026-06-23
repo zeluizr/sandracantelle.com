@@ -1,16 +1,14 @@
-import { Mail, Linkedin, ArrowUpRight, MapPin } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin } from "lucide-react";
+import { LinkedinIcon } from "./icons";
 import { Reveal, Eyebrow, CropMarks } from "./primitives";
-import { SunMark } from "./art";
 import { identity } from "../data/cv";
 
 export function Contact() {
   return (
     <section
       id="contacto"
-      className="relative scroll-mt-20 overflow-hidden border-t border-line bg-sand/60 px-6 py-24 lg:px-10 lg:py-32"
+      className="relative scroll-mt-20 border-t border-line bg-sand/60 px-6 py-24 lg:px-10 lg:py-32"
     >
-      <SunMark className="pointer-events-none absolute -right-20 -top-16 h-72 w-72 opacity-70" />
-
       <div className="relative mx-auto max-w-[1240px]">
         <Reveal>
           <Eyebrow index="05" label="Contacto" />
@@ -37,7 +35,7 @@ export function Contact() {
               className="group relative bg-cream p-8 transition-colors hover:bg-sand lg:p-10"
             >
               <CropMarks tone="light" />
-              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/65">
+              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/70">
                 <Mail size={14} className="text-clay" /> Email
               </span>
               <span className="mt-4 block break-all font-display text-2xl text-ink transition-colors group-hover:text-clay lg:text-[1.7rem]">
@@ -56,8 +54,8 @@ export function Contact() {
               className="group relative bg-cream p-8 transition-colors hover:bg-sand lg:p-10"
             >
               <CropMarks tone="light" />
-              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/65">
-                <Linkedin size={14} className="text-blue" /> LinkedIn
+              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/70">
+                <LinkedinIcon size={14} className="text-blue" /> LinkedIn
               </span>
               <span className="mt-4 block font-display text-2xl text-ink transition-colors group-hover:text-blue lg:text-[1.7rem]">
                 {identity.linkedinLabel}
@@ -71,7 +69,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink/65">
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink/70">
             <span className="flex items-center gap-1.5 font-medium text-ink">
               <MapPin size={14} className="text-clay" /> {identity.base}
             </span>

@@ -1,7 +1,8 @@
 import { Fragment } from "react";
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { LinkedinIcon } from "./icons";
 import { Reveal, BrandText } from "./primitives";
-import { BrushStroke, SunMark } from "./art";
+import { BrushStroke } from "./art";
 import { identity, stats, disciplines } from "../data/cv";
 
 const LEAD =
@@ -13,13 +14,6 @@ export function Hero() {
       id="inicio"
       className="relative overflow-hidden px-6 pb-14 pt-32 lg:px-10"
     >
-      {/* golden-hour sun, low on the horizon, top-right */}
-      <SunMark className="pointer-events-none absolute -right-16 -top-10 h-[22rem] w-[22rem] opacity-90 sm:h-[28rem] sm:w-[28rem]" />
-      {/* handwritten annotation by the sun */}
-      <span className="pointer-events-none absolute right-10 top-28 hidden -rotate-6 font-script text-2xl text-clay/80 sm:block lg:right-24">
-        hora dorada
-      </span>
-
       <div className="relative mx-auto flex min-h-[calc(100svh-12rem)] max-w-[1240px] flex-col justify-between">
         <div>
           <Reveal>
@@ -42,7 +36,7 @@ export function Hero() {
 
           {/* disciplines — strategist, technologist, photographer, painter */}
           <Reveal delay={0.14}>
-            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink/65">
+            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink/70">
               {disciplines.map((d, i) => (
                 <Fragment key={d}>
                   {i > 0 && (
@@ -80,7 +74,7 @@ export function Hero() {
                 rel="noreferrer"
                 className="flex items-center gap-2 border border-ink/25 px-6 py-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream"
               >
-                <Linkedin size={15} />
+                <LinkedinIcon size={15} />
                 LinkedIn
               </a>
             </div>
@@ -100,7 +94,7 @@ export function Hero() {
                     className={
                       i === identity.migration.length - 1
                         ? "flex items-center gap-2 font-medium text-ink"
-                        : "text-ink/60"
+                        : "text-ink/70"
                     }
                   >
                     {i === identity.migration.length - 1 && (
@@ -118,7 +112,7 @@ export function Hero() {
                   <dd className="font-serif text-4xl text-clay lg:text-5xl">
                     {s.value}
                   </dd>
-                  <dt className="mt-2 font-mono text-[0.66rem] uppercase tracking-[0.16em] text-ink/65">
+                  <dt className="mt-2 font-mono text-[0.66rem] uppercase tracking-[0.16em] text-ink/70">
                     {s.label}
                   </dt>
                 </div>

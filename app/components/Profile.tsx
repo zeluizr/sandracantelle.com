@@ -43,7 +43,7 @@ export function Profile() {
                   Pienso la estrategia como composición: encuadre, luz y color al
                   servicio de una marca.
                 </blockquote>
-                <figcaption className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-ink/65">
+                <figcaption className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-ink/70">
                   Fotógrafa · Pintora · Marketing
                 </figcaption>
               </figure>
@@ -62,7 +62,7 @@ export function Profile() {
                       key={row.key}
                       className="flex items-baseline justify-between gap-4 py-3"
                     >
-                      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink/65">
+                      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink/70">
                         {row.key}
                       </dt>
                       <dd className="text-right text-sm font-medium text-ink">
@@ -87,7 +87,7 @@ export function Profile() {
                         {lang.name}
                       </span>
                       <span className="flex items-center gap-3">
-                        <span className="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/65">
+                        <span className="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/70">
                           {lang.level}
                         </span>
                         <span

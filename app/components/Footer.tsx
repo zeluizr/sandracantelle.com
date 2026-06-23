@@ -1,4 +1,5 @@
-import { Heart, Coffee, Github, Linkedin } from "lucide-react";
+import { Heart, Coffee } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
 import { identity, disciplines } from "../data/cv";
 
 export function Footer() {
@@ -19,11 +20,10 @@ export function Footer() {
               aria-label="LinkedIn de Sandra Cantelle"
               className="flex h-10 w-10 items-center justify-center border border-line-dusk text-cream/80 transition-colors hover:border-gold hover:text-gold"
             >
-              <Linkedin size={17} strokeWidth={1.6} />
+              <LinkedinIcon size={17} />
             </a>
             <a
               href={`mailto:${identity.email}`}
-              aria-label="Enviar email a Sandra Cantelle"
               className="flex h-10 items-center gap-2 border border-line-dusk px-4 font-mono text-[0.66rem] uppercase tracking-[0.14em] text-cream/80 transition-colors hover:border-gold hover:text-gold"
             >
               {identity.email}
@@ -44,7 +44,7 @@ export function Footer() {
               rel="noreferrer"
               className="inline-flex items-center gap-1 text-gold underline decoration-1 underline-offset-2 transition-opacity hover:opacity-75"
             >
-              <Github size={13} />
+              <GithubIcon size={13} />
               zeluizr
             </a>
           </p>

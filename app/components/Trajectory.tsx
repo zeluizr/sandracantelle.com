@@ -42,7 +42,7 @@ function EraBlock({ era }: { era: Era }) {
             <h3 className="font-display text-[1.7rem] font-medium leading-none text-ink">
               {era.country}
             </h3>
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink/65">
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink/70">
               {era.span}
             </span>
           </div>
@@ -76,7 +76,7 @@ function RoleRow({ role }: { role: Role }) {
 
       <Reveal>
         <div className="grid gap-x-6 gap-y-2 sm:grid-cols-[4.5rem_1fr]">
-          <span className="font-mono text-sm font-medium text-ink/65">
+          <span className="font-mono text-sm font-medium text-ink/70">
             {role.year}
           </span>
           <div>
@@ -88,7 +88,7 @@ function RoleRow({ role }: { role: Role }) {
             </p>
 
             {role.location && (
-              <p className="mt-1 flex items-center gap-1.5 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/65">
+              <p className="mt-1 flex items-center gap-1.5 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/70">
                 <MapPin size={11} /> {role.location}
               </p>
             )}
