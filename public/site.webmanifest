@@ -1,0 +1,16 @@
+{
+  "name": "Sandra Cantelle — Chief Marketing Technology Officer",
+  "short_name": "S. Cantelle",
+  "description": "Ejecutiva de marketing, e-commerce y business intelligence. Fotógrafa y pintora.",
+  "lang": "es",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf1e2",
+  "theme_color": "#faf1e2",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}

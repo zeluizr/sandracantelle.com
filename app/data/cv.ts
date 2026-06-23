@@ -7,7 +7,7 @@ export const identity = {
   name: "Sandra Cantelle",
   role: "Chief Marketing Technology Officer",
   shortRole: "CMTO",
-  email: "scantelle@gmail.com",
+  email: "cantelle@commente.me",
   linkedin: "https://www.linkedin.com/in/cantelle",
   linkedinLabel: "linkedin.com/in/cantelle",
   base: "Santiago de Chile",
@@ -90,7 +90,7 @@ export const eras: Era[] = [
       {
         year: "2019",
         role: "Co-fundadora · CEO",
-        org: "Inmmerce",
+        org: "inmmerce",
         location: "Santiago",
         points: [
           "Plan de desarrollo estratégico de la escuela.",

@@ -1,25 +1,29 @@
-import { Reveal, Eyebrow } from "./primitives";
+import { Mail, Linkedin, ArrowUpRight, MapPin } from "lucide-react";
+import { Reveal, Eyebrow, CropMarks } from "./primitives";
+import { SunMark } from "./art";
 import { identity } from "../data/cv";
 
 export function Contact() {
   return (
     <section
       id="contacto"
-      className="relative scroll-mt-20 border-t border-line px-6 py-24 lg:px-10 lg:py-32"
+      className="relative scroll-mt-20 overflow-hidden border-t border-line bg-sand/60 px-6 py-24 lg:px-10 lg:py-32"
     >
-      <div className="mx-auto max-w-[1240px]">
+      <SunMark className="pointer-events-none absolute -right-20 -top-16 h-72 w-72 opacity-70" />
+
+      <div className="relative mx-auto max-w-[1240px]">
         <Reveal>
           <Eyebrow index="05" label="Contacto" />
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2 className="mt-8 font-display text-[clamp(2.6rem,9vw,7rem)] font-medium leading-[0.9] tracking-[-0.02em]">
-            ¿Conversamos?
+          <h2 className="mt-8 font-display text-[clamp(2.6rem,9vw,7rem)] font-medium leading-[0.9] tracking-[-0.02em] text-ink">
+            ¿Conver<span className="font-serif italic text-clay">samos</span>?
           </h2>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/70">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink/75">
             Si buscas una ejecutiva con experiencia comprobada en transformación
             digital, e-commerce y liderazgo de equipos en Latinoamérica,
             hablemos.
@@ -30,49 +34,46 @@ export function Contact() {
           <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-2">
             <a
               href={`mailto:${identity.email}`}
-              className="group relative bg-ink p-8 transition-colors hover:bg-ink-2 lg:p-10"
+              className="group relative bg-cream p-8 transition-colors hover:bg-sand lg:p-10"
             >
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
-                Email
+              <CropMarks tone="light" />
+              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/65">
+                <Mail size={14} className="text-clay" /> Email
               </span>
-              <span className="mt-4 block font-display text-2xl text-bone transition-colors group-hover:text-tungsten lg:text-3xl">
+              <span className="mt-4 block break-all font-display text-2xl text-ink transition-colors group-hover:text-clay lg:text-[1.7rem]">
                 {identity.email}
               </span>
-              <span
-                className="absolute right-8 top-8 text-stone transition-all group-hover:translate-x-0.5 group-hover:text-tungsten"
-                aria-hidden
-              >
-                ↗
-              </span>
+              <ArrowUpRight
+                size={20}
+                className="absolute right-8 top-8 text-ink/40 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-clay"
+              />
             </a>
 
             <a
               href={identity.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="group relative bg-ink p-8 transition-colors hover:bg-ink-2 lg:p-10"
+              className="group relative bg-cream p-8 transition-colors hover:bg-sand lg:p-10"
             >
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
-                LinkedIn
+              <CropMarks tone="light" />
+              <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/65">
+                <Linkedin size={14} className="text-blue" /> LinkedIn
               </span>
-              <span className="mt-4 block font-display text-2xl text-bone transition-colors group-hover:text-tungsten lg:text-3xl">
+              <span className="mt-4 block font-display text-2xl text-ink transition-colors group-hover:text-blue lg:text-[1.7rem]">
                 {identity.linkedinLabel}
               </span>
-              <span
-                className="absolute right-8 top-8 text-stone transition-all group-hover:translate-x-0.5 group-hover:text-tungsten"
-                aria-hidden
-              >
-                ↗
-              </span>
+              <ArrowUpRight
+                size={20}
+                className="absolute right-8 top-8 text-ink/40 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue"
+              />
             </a>
           </div>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-stone">
-            <span className="flex items-center gap-2 text-bone/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-tungsten" aria-hidden />
-              {identity.base}
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink/65">
+            <span className="flex items-center gap-1.5 font-medium text-ink">
+              <MapPin size={14} className="text-clay" /> {identity.base}
             </span>
             <span>{identity.coordinates}</span>
             <span>{identity.timezone}</span>

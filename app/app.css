@@ -1,30 +1,41 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ *
- * Design tokens — "Tungsten & Bone": a warm darkroom-editorial system
- * built for a marketing-technology executive with a photographer's eye.
+ * "Golden Hour" — a sunny system stretched between warm and cool, the
+ * way a sunset holds orange and blue at once. Warm cream ground, espresso
+ * ink, gold sun, rose-gold + clay on the warm side, dusk blue on the cool
+ * side. Light-dominant with one deep-dusk section so it lives between dark
+ * and light. Type is deliberately mixed: Fraunces, DM Serif Display, a
+ * grotesque, a mono, and a handwritten accent.
  * ------------------------------------------------------------------ */
 @theme {
-  --color-ink: #14110d; /* warm near-black — dominant ground */
-  --color-ink-2: #1b1712; /* raised surface on dark */
-  --color-ink-3: #241f18; /* hover surface on dark */
-  --color-bone: #ece3d2; /* warm paper — inverted dossier sections */
-  --color-bone-2: #f4eee2; /* lifted paper */
-  --color-stone: #8c8472; /* muted type on dark */
-  --color-tungsten: #e9a23c; /* the single bright accent (darkroom light) */
-  --color-oxide: #bf4a2c; /* terracotta — used sparingly for location/era */
-  --color-line: #393227; /* hairline on dark */
+  --color-cream: #faf1e2; /* primary sunny paper */
+  --color-sand: #f3e3c9; /* deeper warm panel */
+  --color-ink: #3a281f; /* warm espresso — primary text */
 
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --color-dusk: #233747; /* deep dusk blue — the one dark section */
+  --color-dusk-2: #2c465a; /* raised surface on dusk */
+
+  --color-gold: #e2a32c; /* the sun — primary accent */
+  --color-rose: #db8a63; /* rose-gold */
+  --color-clay: #c9542a; /* terracotta orange */
+  --color-blue: #38688c; /* dusk/sky blue — cool counterpoint, links */
+
+  --color-line: #e3cfac; /* hairline on warm light */
+  --color-line-dusk: #3a566c; /* hairline on dusk */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
   --font-sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-script: "Caveat", "Segoe Script", cursive;
 
   --radius: 2px;
 }
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html {
@@ -33,10 +44,22 @@
   }
 
   body {
-    background-color: var(--color-ink);
-    color: var(--color-bone);
+    background-color: var(--color-cream);
+    background-image:
+      radial-gradient(
+        60rem 40rem at 85% -10%,
+        rgba(226, 163, 44, 0.22),
+        transparent 60%
+      ),
+      radial-gradient(
+        50rem 40rem at -10% 8%,
+        rgba(56, 104, 140, 0.12),
+        transparent 55%
+      );
+    background-attachment: fixed;
+    color: var(--color-ink);
     font-family: var(--font-sans);
-    font-weight: 350;
+    font-weight: 380;
   }
 
   h1,
@@ -45,16 +68,16 @@
   h4 {
     font-family: var(--font-display);
     font-optical-sizing: auto;
-    font-weight: 480;
+    font-weight: 500;
   }
 
   ::selection {
-    background: var(--color-tungsten);
+    background: var(--color-gold);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-tungsten);
+    outline: 2px solid var(--color-clay);
     outline-offset: 3px;
   }
 
@@ -62,7 +85,6 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Honour reduced-motion globally for any CSS transition/animation. */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -73,4 +95,9 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* A small handwritten accent for painterly annotations. */
+.font-script {
+  font-family: var(--font-script);
 }

@@ -1,9 +1,53 @@
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Scroll-triggered reveal that collapses to a no-op under reduced motion. */
+/** Brand names that must always render lowercase and link to their site. */
+const BRANDS = [
+  { pattern: "commente\\.me", label: "commente.me", url: "https://commente.me" },
+  { pattern: "inmmerce", label: "inmmerce", url: "https://inmmerce.com" },
+];
+const BRAND_RE = new RegExp(`(${BRANDS.map((b) => b.pattern).join("|")})`, "gi");
+
+/**
+ * Renders a string, turning every mention of "commente.me" / "inmmerce" into a
+ * lowercase link to its site — even inside an uppercased label (`lowercase`
+ * overrides the parent's text-transform).
+ */
+export function BrandText({
+  children,
+  linkClassName = "",
+}: {
+  children: string;
+  linkClassName?: string;
+}) {
+  return (
+    <>
+      {children.split(BRAND_RE).map((part, i) => {
+        const brand = BRANDS.find((b) =>
+          new RegExp(`^${b.pattern}$`, "i").test(part),
+        );
+        if (!brand) return <span key={i}>{part}</span>;
+        return (
+          <a
+            key={i}
+            href={brand.url}
+            target="_blank"
+            rel="noreferrer"
+            className={`lowercase underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70 ${linkClassName}`}
+          >
+            {brand.label}
+          </a>
+        );
+      })}
+    </>
+  );
+}
+
+type Tone = "light" | "dusk";
+
+/** Scroll-triggered reveal. Reduced motion is handled globally by MotionConfig. */
 export function Reveal({
   children,
   className,
@@ -15,11 +59,10 @@ export function Reveal({
   delay?: number;
   y?: number;
 }) {
-  const reduce = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y }}
+      initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, delay, ease: EASE }}
@@ -33,20 +76,20 @@ export function Reveal({
 export function Eyebrow({
   index,
   label,
-  tone = "dark",
+  tone = "light",
 }: {
   index?: string;
   label: string;
-  tone?: "dark" | "light";
+  tone?: Tone;
 }) {
   return (
     <div className="flex items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.25em]">
-      {index && <span className="text-tungsten">{index}</span>}
+      {index && <span className="text-clay">{index}</span>}
       <span
-        className={`h-px w-6 ${tone === "light" ? "bg-ink/30" : "bg-line"}`}
+        className={`h-px w-6 ${tone === "dusk" ? "bg-cream/40" : "bg-ink/30"}`}
         aria-hidden
       />
-      <span className={tone === "light" ? "text-ink/55" : "text-stone"}>
+      <span className={tone === "dusk" ? "text-cream/75" : "text-ink/75"}>
         {label}
       </span>
     </div>
@@ -59,13 +102,13 @@ export function SectionHead({
   eyebrow,
   title,
   intro,
-  tone = "dark",
+  tone = "light",
 }: {
   index: string;
   eyebrow: string;
   title: ReactNode;
   intro?: string;
-  tone?: "dark" | "light";
+  tone?: Tone;
 }) {
   return (
     <div>
@@ -81,7 +124,7 @@ export function SectionHead({
         <Reveal delay={0.12}>
           <p
             className={`mt-7 max-w-2xl text-lg leading-relaxed ${
-              tone === "light" ? "text-ink/65" : "text-bone/65"
+              tone === "dusk" ? "text-cream/75" : "text-ink/75"
             }`}
           >
             {intro}
@@ -93,8 +136,8 @@ export function SectionHead({
 }
 
 /** Four registration / crop marks. Parent must be `relative`. */
-export function CropMarks({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const color = tone === "light" ? "border-ink/25" : "border-bone/25";
+export function CropMarks({ tone = "light" }: { tone?: Tone }) {
+  const color = tone === "dusk" ? "border-cream/30" : "border-ink/25";
   const base = "pointer-events-none absolute h-2.5 w-2.5";
   return (
     <span aria-hidden>

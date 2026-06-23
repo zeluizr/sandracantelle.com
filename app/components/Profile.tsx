@@ -1,3 +1,4 @@
+import { FileText, Languages, Award } from "lucide-react";
 import { Reveal, SectionHead } from "./primitives";
 import { bio, ficha, languages, strengths } from "../data/cv";
 
@@ -15,7 +16,7 @@ export function Profile() {
             <>
               Donde el marketing
               <br />
-              <span className="italic">encuentra el dato</span>
+              <span className="font-serif italic text-clay">encuentra el dato</span>
             </>
           }
         />
@@ -23,7 +24,7 @@ export function Profile() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
           <div>
             <Reveal>
-              <p className="text-[1.35rem] leading-[1.5] text-bone/90 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-[3.6rem] first-letter:font-medium first-letter:leading-[0.7] first-letter:text-tungsten">
+              <p className="text-[1.35rem] leading-[1.5] text-ink/90 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-[3.6rem] first-letter:leading-[0.7] first-letter:text-clay">
                 {bio.lead}
               </p>
             </Reveal>
@@ -31,18 +32,18 @@ export function Profile() {
             <div className="mt-8 space-y-5">
               {bio.paragraphs.map((p, i) => (
                 <Reveal key={i} delay={0.05 * i}>
-                  <p className="max-w-xl leading-relaxed text-bone/65">{p}</p>
+                  <p className="max-w-xl leading-relaxed text-ink/75">{p}</p>
                 </Reveal>
               ))}
             </div>
 
             <Reveal delay={0.2}>
-              <figure className="mt-10 border-l-2 border-tungsten pl-6">
-                <blockquote className="max-w-xl font-display text-[1.5rem] italic leading-snug text-bone/90">
+              <figure className="mt-10 border-l-2 border-gold pl-6">
+                <blockquote className="max-w-xl font-serif text-[1.5rem] italic leading-snug text-ink">
                   Pienso la estrategia como composición: encuadre, luz y color al
                   servicio de una marca.
                 </blockquote>
-                <figcaption className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-stone">
+                <figcaption className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.2em] text-ink/65">
                   Fotógrafa · Pintora · Marketing
                 </figcaption>
               </figure>
@@ -51,10 +52,9 @@ export function Profile() {
 
           <Reveal delay={0.1}>
             <aside className="flex flex-col gap-10">
-              {/* ficha técnica — the data voice */}
               <div>
-                <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-tungsten">
-                  Ficha técnica
+                <h3 className="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-clay">
+                  <FileText size={14} /> Ficha técnica
                 </h3>
                 <dl className="mt-4 divide-y divide-line border-y border-line">
                   {ficha.map((row) => (
@@ -62,10 +62,10 @@ export function Profile() {
                       key={row.key}
                       className="flex items-baseline justify-between gap-4 py-3"
                     >
-                      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-stone">
+                      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink/65">
                         {row.key}
                       </dt>
-                      <dd className="text-right text-sm text-bone/85">
+                      <dd className="text-right text-sm font-medium text-ink">
                         {row.value}
                       </dd>
                     </div>
@@ -73,10 +73,9 @@ export function Profile() {
                 </dl>
               </div>
 
-              {/* idiomas with a 3-step strength meter */}
               <div>
-                <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-tungsten">
-                  Idiomas
+                <h3 className="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-clay">
+                  <Languages size={14} /> Idiomas
                 </h3>
                 <ul className="mt-4 space-y-3">
                   {languages.map((lang) => (
@@ -84,17 +83,22 @@ export function Profile() {
                       key={lang.name}
                       className="flex items-center justify-between gap-4"
                     >
-                      <span className="text-sm text-bone/85">{lang.name}</span>
+                      <span className="text-sm font-medium text-ink">
+                        {lang.name}
+                      </span>
                       <span className="flex items-center gap-3">
-                        <span className="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-stone">
+                        <span className="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink/65">
                           {lang.level}
                         </span>
-                        <span className="flex gap-1" aria-hidden>
+                        <span
+                          className="flex gap-1"
+                          aria-hidden
+                        >
                           {[1, 2, 3].map((n) => (
                             <span
                               key={n}
                               className={`h-1.5 w-4 ${
-                                n <= lang.strength ? "bg-tungsten" : "bg-line"
+                                n <= lang.strength ? "bg-gold" : "bg-line"
                               }`}
                             />
                           ))}
@@ -105,16 +109,15 @@ export function Profile() {
                 </ul>
               </div>
 
-              {/* top skills */}
               <div>
-                <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-tungsten">
-                  Fortalezas
+                <h3 className="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-clay">
+                  <Award size={14} /> Fortalezas
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {strengths.map((s) => (
                     <span
                       key={s}
-                      className="border border-line px-3 py-1.5 font-mono text-[0.66rem] uppercase tracking-[0.1em] text-bone/70"
+                      className="border border-line bg-sand/50 px-3 py-1.5 font-mono text-[0.66rem] uppercase tracking-[0.1em] text-ink/75"
                     >
                       {s}
                     </span>

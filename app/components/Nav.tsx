@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { Menu, X } from "lucide-react";
 import { identity, nav } from "../data/cv";
 
 export function Nav() {
@@ -17,16 +18,16 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         scrolled || open
-          ? "border-b border-line/70 bg-ink/85 backdrop-blur-md"
+          ? "border-b border-line/70 bg-cream/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-4 lg:px-10">
         <a href="#inicio" className="group flex items-baseline gap-2.5">
-          <span className="font-display text-xl tracking-tight text-bone">
+          <span className="font-display text-xl tracking-tight text-ink">
             {identity.name}
           </span>
-          <span className="hidden font-mono text-[0.6rem] uppercase tracking-[0.3em] text-stone sm:inline">
+          <span className="hidden font-mono text-[0.6rem] uppercase tracking-[0.3em] text-clay sm:inline">
             {identity.shortRole}
           </span>
         </a>
@@ -36,14 +37,14 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-stone transition-colors hover:text-bone"
+              className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-clay"
             >
               {l.label}
             </a>
           ))}
           <a
             href="#contacto"
-            className="border border-tungsten/55 px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-tungsten transition-colors hover:bg-tungsten hover:text-ink"
+            className="border border-clay/60 px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-clay transition-colors hover:bg-clay hover:text-cream"
           >
             Conectar
           </a>
@@ -51,21 +52,12 @@ export function Nav() {
 
         <button
           type="button"
-          className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] md:hidden"
+          className="flex h-9 w-9 items-center justify-center text-ink md:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span
-            className={`block h-px w-6 bg-bone transition-transform duration-300 ${
-              open ? "translate-y-[3px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-px w-6 bg-bone transition-transform duration-300 ${
-              open ? "-translate-y-[3px] -rotate-45" : ""
-            }`}
-          />
+          {open ? <X size={22} strokeWidth={1.6} /> : <Menu size={22} strokeWidth={1.6} />}
         </button>
       </nav>
 
@@ -85,10 +77,10 @@ export function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-baseline justify-between border-b border-line/60 py-3 font-mono text-sm uppercase tracking-[0.14em] text-bone/80"
+                  className="flex items-baseline justify-between border-b border-line/70 py-3 font-mono text-sm uppercase tracking-[0.14em] text-ink/80"
                 >
                   <span>{l.label}</span>
-                  <span className="text-[0.7rem] text-stone">{l.index}</span>
+                  <span className="text-[0.7rem] text-clay">{l.index}</span>
                 </a>
               ))}
             </div>
