@@ -1,3 +1,10 @@
+# `packages` is required by pnpm 9 (Railway's builder), which otherwise fails
+# with "packages field missing or empty". Declaring the root makes this a valid
+# single-package workspace; the lockfile already uses "." as its only importer,
+# so --frozen-lockfile still matches. The keys below are read by the local
+# pnpm 11 supply-chain wrapper and are harmlessly ignored by pnpm 9.
+packages:
+  - .
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:

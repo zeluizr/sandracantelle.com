@@ -1,8 +1,7 @@
-# Railway uploads a snapshot of this directory. Keep it minimal and never
-# ship the local-only pnpm-workspace.yaml (breaks pnpm 9 on the builder).
+# Keep the Railway upload snapshot small. (pnpm-workspace.yaml is intentionally
+# NOT ignored — railpack copies it anyway, and it must be a valid workspace file.)
 node_modules
 build
 .react-router
 .cache
-pnpm-workspace.yaml
 .DS_Store
