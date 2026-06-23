@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Design tokens — "Tungsten & Bone": a warm darkroom-editorial system
+ * built for a marketing-technology executive with a photographer's eye.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #14110d; /* warm near-black — dominant ground */
+  --color-ink-2: #1b1712; /* raised surface on dark */
+  --color-ink-3: #241f18; /* hover surface on dark */
+  --color-bone: #ece3d2; /* warm paper — inverted dossier sections */
+  --color-bone-2: #f4eee2; /* lifted paper */
+  --color-stone: #8c8472; /* muted type on dark */
+  --color-tungsten: #e9a23c; /* the single bright accent (darkroom light) */
+  --color-oxide: #bf4a2c; /* terracotta — used sparingly for location/era */
+  --color-line: #393227; /* hairline on dark */
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius: 2px;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-weight: 350;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 480;
+  }
+
+  ::selection {
+    background: var(--color-tungsten);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-tungsten);
+    outline-offset: 3px;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Honour reduced-motion globally for any CSS transition/animation. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
