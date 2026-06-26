@@ -1,7 +1,5 @@
 ![Sandra Cantelle](.github/cover.png)
 
-# Sandra Cantelle
-
 **Sitio personal de Sandra Cantelle — Chief Marketing Technology Officer.**
 
 Ejecutiva de marketing, e-commerce y business intelligence; fotógrafa y pintora. Una
