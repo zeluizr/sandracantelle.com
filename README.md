@@ -8,8 +8,6 @@ y un único acento ámbar—, con un índice de trayectoria que se revela en ám
 
 **[Ver sitio en vivo →](https://sandracantelle.com)**
 
-[![último commit](https://badgen.net/github/last-commit/zeluizr/sandracantelle.com?label=último%20commit&color=E8822A)](https://github.com/zeluizr/sandracantelle.com/commits)
-
 ---
 
 ## Stack
