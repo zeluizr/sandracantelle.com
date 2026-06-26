@@ -70,4 +70,4 @@ Accesible por defecto: responsive, foco visible y `prefers-reduced-motion` respe
 
 ---
 
-_Hecho con mucho amor y café por [zeluizr](https://github.com/zeluizr) ☕_
+_Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
