@@ -14,3 +14,8 @@ minimumReleaseAgeExclude:
 # Transitivo do Babel (via @react-router/dev); os dependentes aceitam '>= 4.21.0'.
 overrides:
   browserslist: '^4.28.7'
+  # qs 6.16.0 corrige DoS via isBuffer e o bypass de arrayLimit; nao ha
+  # versao 6.15.x corrigida. express@4 e body-parser declaram '~6.15.1'
+  # por conservadorismo — o 6.16.0 e minor sem breaking change (o unico
+  # ajuste de parsing exige throwOnLimitExceeded, que nao e o default).
+  qs: '^6.16.0'
